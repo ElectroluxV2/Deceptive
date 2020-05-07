@@ -1,0 +1,6 @@
+.idea/
+/coverage/
+/vendor/
+/app/settings.php
+/logs/*
+!/logs/README.md
