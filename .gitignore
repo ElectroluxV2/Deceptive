@@ -3,4 +3,6 @@
 /vendor/
 /app/settings.php
 /logs/*
+/tmp/*
+/private/declarations/*
 !/logs/README.md
