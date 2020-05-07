@@ -5,4 +5,5 @@
 /logs/*
 /tmp/*
 /private/declarations/*
+/private/uploads/*
 !/logs/README.md
