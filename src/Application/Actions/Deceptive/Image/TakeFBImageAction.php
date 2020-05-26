@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Application\Actions\Deceptive;
+namespace App\Application\Actions\Deceptive\Image;
 
+use App\Application\Actions\Deceptive\DeceptiveAction;
 use Exception;
 use Psr\Http\Message\ResponseInterface as Response;
 
-class ParseFBImageAction extends DeceptiveAction {
+class TakeFBImageAction extends DeceptiveAction {
 
     /**
      * @return Response

@@ -14,11 +14,11 @@ abstract class DeceptiveAction extends Action {
     /**
      * @var CMS
      */
-    protected $cms;
+    protected CMS $cms;
     /**
      * @var Mpdf
      */
-    protected $mpdf;
+    protected Mpdf $mpdf;
     /**
      * @var ContainerInterface
      */

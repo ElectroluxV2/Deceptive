@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Application\Actions\Facebook;
+namespace App\Application\Actions\Facebook\Album;
 
-use App\Domain\Google\Photos\GooglePhotosException;
+use App\Application\Actions\Facebook\FacebookAction;
 use Facebook\Exceptions\FacebookSDKException;
 use Psr\Http\Message\ResponseInterface as Response;
 
-class AddPhotoToAlbumAction extends FacebookAction {
+class PushPhotoAction extends FacebookAction {
     /**
      * {@inheritdoc}
      * @throws FacebookSDKException

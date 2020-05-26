@@ -1,13 +1,14 @@
 <?php
 
 
-namespace App\Application\Actions\Facebook;
+namespace App\Application\Actions\Facebook\Album;
 
 
+use App\Application\Actions\Facebook\FacebookAction;
 use Facebook\Exceptions\FacebookSDKException;
 use Psr\Http\Message\ResponseInterface as Response;
 
-class CreateAlbumAction extends FacebookAction {
+class CreateAction extends FacebookAction {
     /**
      * {@inheritdoc}
      * @throws FacebookSDKException

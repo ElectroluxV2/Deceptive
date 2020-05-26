@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Application\Actions\Deceptive;
+namespace App\Application\Actions\Deceptive\Declaration;
 
+use App\Application\Actions\Deceptive\DeceptiveAction;
 use App\Domain\DomainException\AuthException;
 use Exception;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Psr7\Stream;
 
-class ShowDeclarationAction extends DeceptiveAction {
+class ShowAction extends DeceptiveAction {
 
     /**
      * @return Response

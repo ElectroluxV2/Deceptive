@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Application\Actions\Deceptive;
+namespace App\Application\Actions\Deceptive\Post;
 
+use App\Application\Actions\Deceptive\DeceptiveAction;
 use Exception;
 use Psr\Http\Message\ResponseInterface as Response;
 
-class CreatePostAction extends DeceptiveAction {
+class CreateAction extends DeceptiveAction {
 
     /**
      * @return Response

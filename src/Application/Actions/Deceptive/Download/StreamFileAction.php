@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Application\Actions\Deceptive;
+namespace App\Application\Actions\Deceptive\Download;
 
-use App\Domain\DomainException\AuthException;
+use App\Application\Actions\Deceptive\DeceptiveAction;
 use Exception;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Psr7\Stream;
 
-class DownloadFileAction extends DeceptiveAction {
+class StreamFileAction extends DeceptiveAction {
 
     /**
      * @return Response

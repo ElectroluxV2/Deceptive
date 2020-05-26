@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Application\Actions\Deceptive;
+namespace App\Application\Actions\Deceptive\Declaration;
 
+use App\Application\Actions\Deceptive\DeceptiveAction;
 use Exception;
 use Mpdf\Output\Destination;
 use Psr\Http\Message\ResponseInterface as Response;
 
-class GenerateDeclarationAction extends DeceptiveAction {
+class GenerateAction extends DeceptiveAction {
 
     /**
      * @return Response

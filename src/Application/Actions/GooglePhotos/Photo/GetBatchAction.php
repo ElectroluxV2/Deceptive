@@ -1,12 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Application\Actions\GooglePhotos;
+namespace App\Application\Actions\GooglePhotos\Photo;
 
+use App\Application\Actions\GooglePhotos\GooglePhotosAction;
 use Exception;
 use Psr\Http\Message\ResponseInterface as Response;
 
-class GetPhotoBatchAction extends GooglePhotosAction {
+class GetBatchAction extends GooglePhotosAction {
     /**
      * {@inheritdoc}
      * @throws Exception

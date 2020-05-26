@@ -1,12 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Application\Actions\GooglePhotos;
+namespace App\Application\Actions\GooglePhotos\Photo;
 
+use App\Application\Actions\GooglePhotos\GooglePhotosAction;
 use App\Domain\Google\Photos\GooglePhotosException;
 use Psr\Http\Message\ResponseInterface as Response;
 
-class ListContentsAction extends GooglePhotosAction {
+class ListUserPhotosAction extends GooglePhotosAction {
     /**
      * {@inheritdoc}
      * @throws GooglePhotosException

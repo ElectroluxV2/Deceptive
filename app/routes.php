@@ -1,22 +1,22 @@
 <?php
 declare(strict_types=1);
 
-use App\Application\Actions\Deceptive\CreatePostAction as CreatePost;
-use App\Application\Actions\Deceptive\DownloadFileAction as DownloadFile;
-use App\Application\Actions\Deceptive\GenerateDeclarationAction as GenerateDeclaration;
-use App\Application\Actions\Deceptive\ListPostsAction as ListPosts;
-use App\Application\Actions\Deceptive\ParseFBImageAction as ParseFBImage;
-use App\Application\Actions\Deceptive\ShowDeclarationAction as ShowDeclaration;
-use App\Application\Actions\Facebook\AddPhotoToAlbumAction as AddPhotoToAlbumFB;
-use App\Application\Actions\Facebook\CreateAlbumAction as CreateAlbumFB;
-use App\Application\Actions\Facebook\ListAlbumsAction as ListAlbumsFB;
-use App\Application\Actions\Facebook\ListAlbumAction as ListAlbumFB;
-use App\Application\Actions\Facebook\VerifyHookAction as VerifyHookFB;
-use App\Application\Actions\GooglePhotos\GetPhotoAction as GetPhotoGP;
-use App\Application\Actions\GooglePhotos\GetPhotoBatchAction as GetPhotoBatchGP;
-use App\Application\Actions\GooglePhotos\GetPhotosInsideAlbumAction as GetPhotosInsideAlbumGP;
-use App\Application\Actions\GooglePhotos\ListAlbumsAction as ListAlbumsGP;
-use App\Application\Actions\GooglePhotos\ListContentsAction as ListContentsGP;
+use App\Application\Actions\Deceptive\Post\CreateAction as CreatePost;
+use App\Application\Actions\Deceptive\Download\StreamFileAction as DownloadFile;
+use App\Application\Actions\Deceptive\Declaration\GenerateAction as GenerateDeclaration;
+use App\Application\Actions\Deceptive\Post\ListAction as ListPosts;
+use App\Application\Actions\Deceptive\Image\TakeFBImageAction as ParseFBImage;
+use App\Application\Actions\Deceptive\Declaration\ShowAction as ShowDeclaration;
+use App\Application\Actions\Facebook\Album\PushPhotoAction as AddPhotoToAlbumFB;
+use App\Application\Actions\Facebook\Album\CreateAction as CreateAlbumFB;
+use App\Application\Actions\Facebook\Album\ListAction as ListAlbumsFB;
+use App\Application\Actions\Facebook\Album\ListContentsAction as ListAlbumFB;
+use App\Application\Actions\Facebook\WebHooks\VerifyHookAction as VerifyHookFB;
+use App\Application\Actions\GooglePhotos\Photo\GetAction as GetPhotoGP;
+use App\Application\Actions\GooglePhotos\Photo\GetBatchAction as GetPhotoBatchGP;
+use App\Application\Actions\GooglePhotos\Album\ListPhotosAction as GetPhotosInsideAlbumGP;
+use App\Application\Actions\GooglePhotos\Album\ListAction as ListAlbumsGP;
+use App\Application\Actions\GooglePhotos\Photo\ListUserPhotosAction as ListContentsGP;
 use App\Application\Actions\User\ListUsersAction as ListUsers;
 use App\Application\Actions\User\ViewUserAction as ViewUser;
 use Slim\App;

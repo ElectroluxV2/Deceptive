@@ -45,7 +45,7 @@ class User implements JsonSerializable {
     /**
      * User constructor.
      * @param stdClass $gUser
-     * @param stdClass $role
+     * @param array $role
      */
     public function __construct(stdClass $gUser, array $role) {
        $this->id = $gUser->id;
