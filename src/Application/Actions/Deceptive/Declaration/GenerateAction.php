@@ -6,6 +6,7 @@ use App\Application\Actions\Deceptive\DeceptiveAction;
 use Exception;
 use Mpdf\Output\Destination;
 use Psr\Http\Message\ResponseInterface as Response;
+use stdClass;
 
 class GenerateAction extends DeceptiveAction {
 
@@ -26,15 +27,47 @@ class GenerateAction extends DeceptiveAction {
         $fileName = uniqid("D",true);
         $formData->id = $fileName;
 
+        $requiredFields = [
+            "city",
+            "date",
+            "name",
+            "surname",
+            "birthDate",
+            "pesel",
+            "road",
+            "addr1",
+            "addr2",
+            "postal",
+            "phone1",
+            "email1",
+            "club",
+            "function",
+            "name2",
+            "surname2",
+            "phone2",
+            "email2",
+            "id"
+        ];
+
         $templateData = get_object_vars($formData);
         foreach ($templateData as $key => $value) {
+
+            if (!in_array($key, $requiredFields)) {
+                throw new Exception("Wrong param '".$key."'");
+            }
+
             if (empty($value)) {
                 $templateData[$key] = '—';
             }
         }
 
+        $parsedData = new stdClass();
+        foreach ($requiredFields as $field) {
+            $parsedData->$field = htmlspecialchars($templateData[$field], ENT_QUOTES | ENT_HTML5 | ENT_SUBSTITUTE);
+        }
+
         include_once "DeclarationTemplate.php";
-        $template = makeTemplate($templateData);
+        $template = makeTemplate($parsedData);
 
         $this->mpdf->WriteHTML($template);
         $fileExt = '.pdf';
