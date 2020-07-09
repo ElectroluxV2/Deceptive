@@ -6,6 +6,7 @@ namespace App\Domain\Deceptive;
 
 use App\Domain\Facebook\FacebookPageManager;
 use App\Domain\Google\Photos\GooglePhotosManager;
+use App\Domain\Regatta\RegattaManager;
 use Facebook\Exceptions\FacebookSDKException;
 use Medoo\Medoo;
 use Psr\Log\LoggerInterface;
@@ -16,19 +17,23 @@ class CMS {
     /**
      * @var GooglePhotosManager
      */
-    private $photosManager;
+    private GooglePhotosManager $photosManager;
     /**
      * @var FacebookPageManager
      */
-    private $pageManager;
+    private FacebookPageManager $pageManager;
     /**
      * @var Medoo
      */
-    private $database;
+    private Medoo $database;
     /**
      * @var LoggerInterface
      */
-    private $logger;
+    private LoggerInterface $logger;
+    /**
+     * @var RegattaManager
+     */
+    private RegattaManager $regattaManager;
 
     /**
      * CMS constructor.
@@ -36,12 +41,21 @@ class CMS {
      * @param Medoo $database
      * @param FacebookPageManager $pageManager
      * @param GooglePhotosManager $photosManager
+     * @param RegattaManager $regattaManager
      */
-    public function __construct(LoggerInterface $logger, Medoo $database, FacebookPageManager $pageManager, GooglePhotosManager $photosManager) {
+    public function __construct(LoggerInterface $logger, Medoo $database, FacebookPageManager $pageManager, GooglePhotosManager $photosManager, RegattaManager $regattaManager) {
         $this->logger = $logger;
         $this->database = $database;
         $this->pageManager = $pageManager;
         $this->photosManager = $photosManager;
+        $this->regattaManager = $regattaManager;
+    }
+
+    /**
+     * @return RegattaManager
+     */
+    public function getRegattaMgr(): RegattaManager {
+        return $this->regattaManager;
     }
 
     /**
@@ -74,7 +88,7 @@ class CMS {
 
         // FB videos
         $toPatch = preg_replace_callback('/(https:\/\/www\.facebook\.com\/([\S]*)\/videos\/([0-9]*))/m', $changeLinkToUrl, $toPatch);
-        $toPatch = preg_replace_callback('/(https:\/\/www\.facebook\.com\/watch\/\?v\=([0-9]*))/m', $changeLinkToUrl, $toPatch);
+        $toPatch = preg_replace_callback('/(https:\/\/www\.facebook\.com\/watch\/\?v=([0-9]*))/m', $changeLinkToUrl, $toPatch);
 
 
         $galleries = [];

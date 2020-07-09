@@ -4,9 +4,13 @@ declare(strict_types=1);
 use App\Application\Actions\Deceptive\Post\CreateAction as CreatePost;
 use App\Application\Actions\Deceptive\Download\StreamFileAction as DownloadFile;
 use App\Application\Actions\Deceptive\Declaration\GenerateAction as GenerateDeclaration;
-use App\Application\Actions\Deceptive\Post\ListAction as ListPosts;
+use App\Application\Actions\Deceptive\Post\ListPostsAction as ListPosts;
 use App\Application\Actions\Deceptive\Image\TakeFBImageAction as ParseFBImage;
 use App\Application\Actions\Deceptive\Declaration\ShowAction as ShowDeclaration;
+use App\Application\Actions\Deceptive\Regatta\DeleteRegattaAction as DeleteRegatta;
+use App\Application\Actions\Deceptive\Regatta\ListRegattaAction as ListRegatta;
+use App\Application\Actions\Deceptive\Regatta\NewRegattaAction as NewRegatta;
+use App\Application\Actions\Deceptive\Regatta\UpdateRegattaAction as UpdateRegatta;
 use App\Application\Actions\Facebook\Album\PushPhotoAction as AddPhotoToAlbumFB;
 use App\Application\Actions\Facebook\Album\CreateAction as CreateAlbumFB;
 use App\Application\Actions\Facebook\Album\ListAction as ListAlbumsFB;
@@ -79,6 +83,13 @@ return function (App $app) {
 
         $deceptiveGroup->group('/file', function (Group $fileGroup) {
            $fileGroup->map(['GET', 'OPTIONS'],'/download/{id}', DownloadFile::class);
+        });
+
+        $deceptiveGroup->group('/regatta', function (Group $regattaGroup) {
+           $regattaGroup->map(['POST', 'OPTIONS'], '/new', NewRegatta::class);
+           $regattaGroup->map(['GET', 'OPTIONS'], '/list/{limit}[/{pageToken}]', ListRegatta::class);
+           $regattaGroup->map(['POST', 'OPTIONS'], '/update/{id}', UpdateRegatta::class);
+           $regattaGroup->map(['DELETE', 'OPTIONS'], '/delete/{id}', DeleteRegatta::class);
         });
     });
 };

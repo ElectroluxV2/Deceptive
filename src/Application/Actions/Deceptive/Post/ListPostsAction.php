@@ -6,7 +6,7 @@ use App\Application\Actions\Deceptive\DeceptiveAction;
 use Exception;
 use Psr\Http\Message\ResponseInterface as Response;
 
-class ListAction extends DeceptiveAction {
+class ListPostsAction extends DeceptiveAction {
 
     /**
      * @return Response

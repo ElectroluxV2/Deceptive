@@ -10,8 +10,8 @@ class ViewUserAction extends UserAction {
      * {@inheritdoc}
      */
     protected function action(): Response {
-        $user = $this->request->getAttribute('user');
-        $this->logger->info("User data was viewed.", ['issuer' => $user->jsonSerialize()]);
-        return $this->respondWithData($user->export());
+        //$user = $this->request->getAttribute('user');
+        //$this->logger->info("User data was viewed.", ['issuer' => $user->jsonSerialize()]);
+        return $this->respondWithData(null);//$user->export());
     }
 }
